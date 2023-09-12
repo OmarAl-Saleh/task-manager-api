@@ -47,7 +47,7 @@ router.post("/users/login", async (req, res) => {
     const token = await user.generateAuthToken(); // we use to take token for specific user to we not use User and not already build in mongoose its similar to above function
     res.send({ user: user.getPublicProfile(), token }); // we coded this function in model file (manual way)
   } catch (e) {
-    res.status(400).send();
+    res.status(400).send(e.message);
   }
 });
 //L111
