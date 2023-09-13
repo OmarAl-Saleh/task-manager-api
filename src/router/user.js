@@ -24,8 +24,6 @@ router.post("/users", async (req, res) => {
     res.status(400).send({
       error: e.message,
       message1: process.env.MONGODB_URL,
-      message1: process.env.PORT,
-      message1: process.env.JWT_SECRET,
     }); // 400 --> bad request
   }
   //that is an old way know using promises we know use async and await
