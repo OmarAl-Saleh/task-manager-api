@@ -16,12 +16,10 @@ const auth = async (req, res, next) => {
     req.user = user; // to give access to use user we just auth and send it to req in router
     next();
   } catch (e) {
-    res
-      .status(401)
-      .send({
-        error: "Please authenticate.",
-        message: process.env.MONGODB_URL,
-      });
+    res.status(401).send({
+      error: "Please authenticate.",
+      message: process.env.MONGODB_URL,
+    });
   }
 };
 module.exports = auth;

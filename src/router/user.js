@@ -21,7 +21,9 @@ router.post("/users", async (req, res) => {
     const token = await user.generateAuthToken();
     await res.status(201).send({ user, token });
   } catch (e) {
-    res.status(400).send(e.message); // 400 --> bad request
+    res
+      .status(400)
+      .send({ error: e.message, message: process.env.MONGODB_URL }); // 400 --> bad request
   }
   //that is an old way know using promises we know use async and await
   // user
